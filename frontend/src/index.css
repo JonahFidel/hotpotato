@@ -1,0 +1,296 @@
+:root {
+  color-scheme: dark;
+  --bg: #1c1410;
+  --bg-2: #2a1b14;
+  --paper: #f3e6d4;
+  --ink: #1c1410;
+  --muted: #8a6f5c;
+  --cream: #f7ead8;
+  --hot: #e85d04;
+  --hot-deep: #9d280c;
+  --danger: #c1121f;
+  --ok: #2d6a4f;
+  --shadow: 8px 8px 0 #100b09;
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--cream);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #4a2416 0%, transparent 55%),
+    radial-gradient(800px 500px at 110% 10%, #7a2e12 0%, transparent 50%),
+    var(--bg);
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+.shell {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+  min-height: 100dvh;
+}
+
+.panel {
+  background: var(--paper);
+  color: #000;
+  color-scheme: light;
+  border-radius: 28px;
+  padding: 22px 20px 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  color: #000;
+  font-weight: 800;
+}
+
+h1 {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 2.4rem;
+  line-height: 0.95;
+  margin: 0;
+  color: #000;
+}
+
+.lede,
+.hint,
+.rules {
+  margin: 0;
+  color: #000;
+}
+
+.phrase {
+  font-family: Fraunces, Georgia, serif;
+  font-size: clamp(2rem, 8vw, 3.1rem);
+  line-height: 1.05;
+  margin: 8px 0 4px;
+  text-wrap: balance;
+}
+
+.phrase.leftover {
+  padding: 12px;
+  background: #ffe8c2;
+  border-radius: 16px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 700;
+}
+
+label:has(input[type='number']) {
+  flex-direction: row;
+  align-items: center;
+}
+
+input,
+select {
+  width: 100%;
+  border: 2px solid #000;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fff;
+  color: #000;
+}
+
+input[type='number'] {
+  width: 72px;
+}
+
+input[type='range'] {
+  accent-color: var(--hot);
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip,
+.ghost,
+.primary,
+.danger {
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.chip.on,
+.primary {
+  background: var(--hot);
+  color: #fff8f0;
+  border-color: var(--hot-deep);
+}
+
+.danger {
+  background: var(--danger);
+  color: white;
+  border-color: #6b0f16;
+}
+
+.primary,
+.danger {
+  font-size: 1.15rem;
+  font-weight: 800;
+  width: 100%;
+  padding: 14px 16px;
+}
+
+.ghost {
+  background: transparent;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rules {
+  padding-left: 18px;
+}
+
+.scores {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.scores li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background: #ffe8c2;
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-weight: 700;
+}
+
+.scores li.holding {
+  outline: 3px solid var(--hot);
+}
+
+.scores li.winner {
+  background: #d8f3dc;
+}
+
+.score-value {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.4rem;
+}
+
+.scores-compact {
+  grid-template-columns: 1fr 1fr;
+}
+
+.timer {
+  font-size: 4.6rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(#fff, #fff) padding-box,
+    conic-gradient(var(--hot) calc(var(--heat) * 360deg), #d4c1ab 0) border-box;
+  border: 10px solid transparent;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  max-width: 220px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.play.urgent .timer {
+  color: var(--danger);
+}
+
+.pass-banner {
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.loading {
+  color: var(--cream);
+}
+
+.error {
+  background: #ffd6d6;
+  color: #6b0f16;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+legend {
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.winner h1 {
+  color: var(--ok);
+}

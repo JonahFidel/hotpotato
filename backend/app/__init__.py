@@ -1,0 +1,1 @@
+"""Hotpotato backend application package."""
