@@ -1,0 +1,10 @@
+# One stable public HTTPS URL. Render builds this image and routes
+# the service hostname to the process that serves both the React UI and /api.
+services:
+  - type: web
+    name: hotpotato
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
