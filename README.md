@@ -55,6 +55,13 @@ cd backend
 .venv/bin/pytest
 ```
 
+## Hosted service
+
+The public game is the Render web service in `render.yaml`.
+That service builds `Dockerfile` and serves the React screen and `/api` on one origin.
+Open that service URL to play.
+The health check is `GET /api/health`.
+
 ## Add a category
 
 1. Copy any file in `backend/app/data/categories/`.
